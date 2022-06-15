@@ -4,12 +4,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BusinessLayer;
 
 namespace DataLayer
 {
-    public class OnlineShopDBContext : DbContext
+    public class MVRSystemDBContext : DbContext
     {
-        public OnlineShopDBContext() : base()
+        public MVRSystemDBContext() : base()
         {
 
         }
@@ -23,10 +24,12 @@ namespace DataLayer
         {
         }
 
-        //public DbSet<Customer> Customers { get; set; }
+        public DbSet<User> Users { get; set; }
 
-        //public DbSet<Product> Products { get; set; }
+        public DbSet<Card> Cards { get; set; }
 
-        //public DbSet<Order> Orders { get; set; }
+        public DbSet<Passport> Passports { get; set; }
+        public DbSet<Visa> Visas { get; set; }
+        public DbSet<DrivingLicense> DrivingLicenses { get; set; }
     }
 }
