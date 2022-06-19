@@ -10,6 +10,9 @@ namespace BusinessLayer
     public class Card
     {
         [Key]
+        [MaxLength(9)]
+        public string Id { get; set; }
+       
         [MaxLength(10)]
         public string EGN { get; set; }
         [Required]
@@ -36,6 +39,16 @@ namespace BusinessLayer
         [MaxLength(30)]
         public string PlaceOfBirth { get; set; }
         [Required]
+        [MaxLength(30)]
+        public string Region{ get; set; }
+        [Required]
+        [MaxLength(30)]
+        public string Township { get; set; }
+        [Required]
+        [MaxLength(30)]
+        public string City { get; set; }
+
+        [Required]
         [MaxLength(50)]
         public string Adress { get; set; }
         [Required]
@@ -51,12 +64,23 @@ namespace BusinessLayer
         [MaxLength(14)]
         public string CreationDate { get; set; }
 
+        [Required]
+        [MaxLength(30)]
+        public string SpecialCode1 { get; set; }
+        [Required]
+        [MaxLength(30)]
+        public string SpecialCode2 { get; set; }
+        [Required]
+        [MaxLength(30)]
+        public string SpecialCode3 { get; set; }
+
         private Card()
         {
 
         }
-        public Card(string egn, string image, string fname, string mname, string lname, string gender, string birth, string expire, string placeofb, string adress, int height, string eyercolor, string authority, string creation, int points, string category)
+        public Card(string id,string egn, string image, string fname, string mname, string lname, string gender, string birth, string expire, string placeofb,string region, string city, string township, string adress, int height, string eyercolor, string authority, string creation, string specialcode1, string specialcode2, string specialcode3)
         {
+            this.Id = id;
             this.EGN = egn;
             this.FirstName = fname;
             this.MidleName = mname;
@@ -65,11 +89,17 @@ namespace BusinessLayer
             this.BirthDate = birth;
             this.ExpireDate = expire;
             this.PlaceOfBirth = placeofb;
+            this.Region = region;   
+            this.City = city;
+            this.Township = township;
             this.Adress = adress;
             this.Height = height;
             this.EyeColor = eyercolor;
             this.Authority = authority;
             this.CreationDate = creation;
+            this.SpecialCode1 = specialcode1;
+            this.SpecialCode2 = specialcode2;
+            this.SpecialCode3 = specialcode3;
         }
     }
 }

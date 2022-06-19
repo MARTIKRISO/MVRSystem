@@ -7,7 +7,7 @@ using BusinessLayer;
 
 namespace DataLayer
 {
-    public class DrivingLicenseContext : IDB<DrivingLicense, int>   
+    public class DrivingLicenseContext : IDB<DrivingLicense, string>   
     {
         private MVRSystemDBContext _context;
 
@@ -29,7 +29,7 @@ namespace DataLayer
             }
         }
 
-        public void Delete(int key)
+        public void Delete(string key)
         {
             try
             {
@@ -44,7 +44,7 @@ namespace DataLayer
             }
         }
 
-        public DrivingLicense Read(int key)
+        public DrivingLicense Read(string key)
         {
             try
             {
