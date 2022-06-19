@@ -17,14 +17,15 @@ namespace DataLayer
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"id=MVRSystemDB.mssql.somee.com;packet size=4096;user id=mshkodrov_SQLLogin_1;pwd=qrktrucpmy;datasource=MVRSystemDB.mssql.somee.com;persist security info=False;initial catalog=MVRSystemDB");
+           // optionsBuilder.UseInMemoryDatabase("DB");
+             optionsBuilder.UseSqlServer("Server=localhost;Database=MVR2;Trusted_Connection=True;");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-   
-       
-    }
+
+
+        }
 
         public DbSet<User> Users { get; set; }
 

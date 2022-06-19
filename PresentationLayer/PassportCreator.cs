@@ -10,17 +10,14 @@ using System.Windows.Forms;
 
 namespace PresentationLayer
 {
-    public partial class NonAdminMenu : Form
+    public partial class PassportCreator : Form
     {
-        public NonAdminMenu()
+        public PassportCreator()
         {
             InitializeComponent();
-        }
+            this.WindowState = FormWindowState.Maximized;
+            this.MinimumSize = new System.Drawing.Size(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height);
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            CardCreator form = new CardCreator();
-            form.ShowDialog();
         }
     }
 }

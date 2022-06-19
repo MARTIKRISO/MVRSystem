@@ -1,10 +1,11 @@
 using BusinessLayer;
+using ServiceLayer;
 
 namespace PresentationLayer
 {
     public partial class LogIn : Form
     {
-        UserManager _manager = new UserManager();
+        UserManager _manager = new UserManager(MVRSystemDBManager.GetContext());
         public LogIn()
         {
             InitializeComponent();
@@ -22,18 +23,18 @@ namespace PresentationLayer
                 if (_manager.CorrectLogin(textBox1.Text.ToString(), textBox2.Text.ToString()))
                 {
                     MessageBox.Show("Успешно влизане");
-                    User user = _manager.ReadAll().Find(x => x.Username == username && x.Password == password);
+                    User user = _manager.ReadAll().ToList().Find(x => x.Username == textBox1.Text && x.Password == textBox2.Text);
 
                     if (user.IsAdmin == true)
                     {
                         AdminMenu newForm = new AdminMenu();
-                        newForm.Parent = this;
+                       
                         newForm.ShowDialog();
                     }
                     else
                     {
                         NonAdminMenu newForm = new NonAdminMenu();
-                        newForm.Parent = this;
+                        newForm.MdiParent = this;
                         newForm.ShowDialog();
                     }
                 }

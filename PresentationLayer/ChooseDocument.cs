@@ -10,34 +10,28 @@ using System.Windows.Forms;
 
 namespace PresentationLayer
 {
-    public partial class AdminMenu : Form
+    public partial class ChooseDocument : Form
     {
-        public AdminMenu()
+        public ChooseDocument()
         {
             InitializeComponent();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            ChooseDocument form = new ChooseDocument();
-            form.ShowDialog();
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            UserCreate form = new UserCreate();
+            CardCreator form = new CardCreator();
             form.ShowDialog();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Finder form = new Finder();
+            PassportCreator form = new PassportCreator();
             form.ShowDialog();
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void button3_Click(object sender, EventArgs e)
         {
-            UserFinder form = new UserFinder();
+            DrivingLicenseCreator form = new DrivingLicenseCreator();
             form.ShowDialog();
         }
     }
