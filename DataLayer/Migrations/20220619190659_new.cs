@@ -4,7 +4,7 @@
 
 namespace DataLayer.Migrations
 {
-    public partial class spas : Migration
+    public partial class @new : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -12,6 +12,7 @@ namespace DataLayer.Migrations
                 name: "Cards",
                 columns: table => new
                 {
+                    Id = table.Column<string>(type: "nvarchar(9)", maxLength: 9, nullable: false),
                     EGN = table.Column<string>(type: "nvarchar(10)", maxLength: 10, nullable: false),
                     Image = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     FirstName = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false),
@@ -21,15 +22,21 @@ namespace DataLayer.Migrations
                     BirthDate = table.Column<string>(type: "nvarchar(14)", maxLength: 14, nullable: false),
                     ExpireDate = table.Column<string>(type: "nvarchar(14)", maxLength: 14, nullable: false),
                     PlaceOfBirth = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false),
+                    Region = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false),
+                    Township = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false),
+                    City = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false),
                     Adress = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     Height = table.Column<int>(type: "int", maxLength: 300, nullable: false),
                     EyeColor = table.Column<string>(type: "nvarchar(15)", maxLength: 15, nullable: false),
                     Authority = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
-                    CreationDate = table.Column<string>(type: "nvarchar(14)", maxLength: 14, nullable: false)
+                    CreationDate = table.Column<string>(type: "nvarchar(14)", maxLength: 14, nullable: false),
+                    SpecialCode1 = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false),
+                    SpecialCode2 = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false),
+                    SpecialCode3 = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Cards", x => x.EGN);
+                    table.PrimaryKey("PK_Cards", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -52,9 +59,9 @@ namespace DataLayer.Migrations
                 name: "DrivingLicenses",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Card = table.Column<string>(type: "nvarchar(10)", nullable: false),
+                    Id = table.Column<string>(type: "nvarchar(9)", maxLength: 9, nullable: false),
+                    EGN = table.Column<string>(type: "nvarchar(10)", maxLength: 10, nullable: false),
+                    Card = table.Column<string>(type: "nvarchar(9)", nullable: false),
                     DrivingPoints = table.Column<int>(type: "int", maxLength: 100, nullable: false),
                     Category = table.Column<string>(type: "nvarchar(5)", maxLength: 5, nullable: false)
                 },
@@ -65,7 +72,7 @@ namespace DataLayer.Migrations
                         name: "FK_DrivingLicenses_Cards_Card",
                         column: x => x.Card,
                         principalTable: "Cards",
-                        principalColumn: "EGN",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -73,9 +80,10 @@ namespace DataLayer.Migrations
                 name: "Passports",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Card = table.Column<string>(type: "nvarchar(10)", nullable: false)
+                    Id = table.Column<string>(type: "nvarchar(9)", maxLength: 9, nullable: false),
+                    EGN = table.Column<string>(type: "nvarchar(10)", maxLength: 10, nullable: false),
+                    Card = table.Column<string>(type: "nvarchar(9)", nullable: false),
+                    Destinations = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -84,30 +92,8 @@ namespace DataLayer.Migrations
                         name: "FK_Passports_Cards_Card",
                         column: x => x.Card,
                         principalTable: "Cards",
-                        principalColumn: "EGN",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Visas",
-                columns: table => new
-                {
-                    ID = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Country = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false),
-                    Entries = table.Column<int>(type: "int", nullable: false),
-                    CreationDate = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    ExpireDate = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Visa = table.Column<int>(type: "int", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Visas", x => x.ID);
-                    table.ForeignKey(
-                        name: "FK_Visas_Passports_Visa",
-                        column: x => x.Visa,
-                        principalTable: "Passports",
-                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateIndex(
@@ -119,11 +105,6 @@ namespace DataLayer.Migrations
                 name: "IX_Passports_Card",
                 table: "Passports",
                 column: "Card");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Visas_Visa",
-                table: "Visas",
-                column: "Visa");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -132,13 +113,10 @@ namespace DataLayer.Migrations
                 name: "DrivingLicenses");
 
             migrationBuilder.DropTable(
-                name: "Users");
-
-            migrationBuilder.DropTable(
-                name: "Visas");
-
-            migrationBuilder.DropTable(
                 name: "Passports");
+
+            migrationBuilder.DropTable(
+                name: "Users");
 
             migrationBuilder.DropTable(
                 name: "Cards");

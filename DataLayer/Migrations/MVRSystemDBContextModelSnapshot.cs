@@ -171,6 +171,10 @@ namespace DataLayer.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(9)");
 
+                    b.Property<string>("Destinations")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("EGN")
                         .IsRequired()
                         .HasMaxLength(10)
@@ -213,40 +217,6 @@ namespace DataLayer.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("BusinessLayer.Visa", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"), 1L, 1);
-
-                    b.Property<string>("Country")
-                        .IsRequired()
-                        .HasMaxLength(30)
-                        .HasColumnType("nvarchar(30)");
-
-                    b.Property<string>("CreationDate")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Entries")
-                        .HasColumnType("int");
-
-                    b.Property<string>("ExpireDate")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Visa")
-                        .HasColumnType("nvarchar(9)");
-
-                    b.HasKey("ID");
-
-                    b.HasIndex("Visa");
-
-                    b.ToTable("Visas");
-                });
-
             modelBuilder.Entity("BusinessLayer.DrivingLicense", b =>
                 {
                     b.HasOne("BusinessLayer.Card", "OwnerCard")
@@ -267,18 +237,6 @@ namespace DataLayer.Migrations
                         .IsRequired();
 
                     b.Navigation("Card_Owner");
-                });
-
-            modelBuilder.Entity("BusinessLayer.Visa", b =>
-                {
-                    b.HasOne("BusinessLayer.Passport", null)
-                        .WithMany("Visas")
-                        .HasForeignKey("Visa");
-                });
-
-            modelBuilder.Entity("BusinessLayer.Passport", b =>
-                {
-                    b.Navigation("Visas");
                 });
 #pragma warning restore 612, 618
         }

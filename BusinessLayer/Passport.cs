@@ -20,16 +20,18 @@ namespace BusinessLayer
         [ForeignKey("Card")]
         public Card Card_Owner { get; set; }
 
-        public List<string> Destinations { get; set; }
+        public string Destinations { get; set; }
         private Passport()
         {
 
         }
 
-        public Passport(Card ownercard)
+        public Passport(string id, string egn, Card ownercard)
         {
+            this.Id = id;
+            this.EGN = EGN;
             this.Card_Owner = ownercard;
-            this.Destinations = new List<string>();
+            this.Destinations = "";
         }
     }
 }

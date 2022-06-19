@@ -18,7 +18,7 @@ namespace DataLayer
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
            // optionsBuilder.UseInMemoryDatabase("DB");
-             optionsBuilder.UseSqlServer("Server=localhost;Database=MVR2;Trusted_Connection=True;");
+             optionsBuilder.UseSqlServer("Server=DESKTOP-DR145US\\SQLEXPRESS;Database=MVR2;Trusted_Connection=True;");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -26,13 +26,10 @@ namespace DataLayer
 
 
         }
-
+        
         public DbSet<User> Users { get; set; }
-
         public DbSet<Card> Cards { get; set; }
-
         public DbSet<Passport> Passports { get; set; }
-        public DbSet<Visa> Visas { get; set; }
         public DbSet<DrivingLicense> DrivingLicenses { get; set; }
     }
 }

@@ -36,5 +36,13 @@ namespace BusinessLayer
             this.DrivingPoints = points;
             this.Category = category;
         }
+        public DrivingLicense(string id, string egn, Card ownercard, int points, string category)
+        {
+            this.Id = id;
+            this.EGN = egn;
+            this.OwnerCard = ownercard;
+            this.DrivingPoints = points;
+            this.Category = category;
+        }
     }
 }
