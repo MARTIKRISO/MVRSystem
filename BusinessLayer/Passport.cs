@@ -11,8 +11,11 @@ namespace BusinessLayer
     public class Passport
     {
         [Key]
-        public int Id { get; set; }
-        
+        [MaxLength (9)]
+        public string Id { get; set; }
+        [Required]
+        [MaxLength(10)]
+        public string EGN{ get; set; }
         [Required]
         [ForeignKey("Card")]
         public Card Card_Owner { get; set; }

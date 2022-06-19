@@ -7,7 +7,7 @@ using BusinessLayer;
 
 namespace DataLayer
 {
-    public class PassportContext : IDB<Passport, int>
+    public class PassportContext : IDB<Passport, string>
     {
         private MVRSystemDBContext _context;
 
@@ -29,7 +29,7 @@ namespace DataLayer
             }
         }
 
-        public void Delete(int key)
+        public void Delete(string key)
         {
             try
             {
@@ -44,7 +44,7 @@ namespace DataLayer
             }
         }
 
-        public Passport Read(int key)
+        public Passport Read(string key)
         {
             try
             {
