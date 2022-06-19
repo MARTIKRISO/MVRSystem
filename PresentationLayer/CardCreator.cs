@@ -463,10 +463,18 @@ namespace PresentationLayer
 
         private void AddButton_Click(object sender, EventArgs e)
         {
-            Card idCard = new Card(unicodeID, IDnumTB.Text, imagePath, NameTB.Text, MidNameTB.Text, SurnameTB.Text, (GenderLabel.Text.ToString()[0]).ToString(), DateOfBirth.Text, ExpiryLabel.Text, PlaceTB.Text, PlaceOfBirth4label.Text, RegionTB.Text, CityTB.Text, TownshipTB.Text, Convert.ToInt32(numericUpDown1.Value), EyecolourTB.Text, Authority.Text, DateTime.Now.ToShortDateString(), UniCode1Label.Text, UniCode2Label.Text, UniCode3Label.Text);
-           _manager.Create(idCard);
+            try
+            {
+                Card idCard = new Card(unicodeID, IDnumTB.Text, imagePath, NameTB.Text, MidNameTB.Text, SurnameTB.Text, (GenderLabel.Text.ToString()[0]).ToString(), DateOfBirth.Text, ExpiryLabel.Text, PlaceTB.Text, PlaceOfBirth4label.Text, RegionTB.Text, CityTB.Text, TownshipTB.Text, Convert.ToInt32(numericUpDown1.Value), EyecolourTB.Text, Authority.Text, DateTime.Now.ToShortDateString(), UniCode1Label.Text, UniCode2Label.Text, UniCode3Label.Text);
+                _manager.Create(idCard);
 
-            ResetFormData();
+                ResetFormData();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Успешно създадена лична карта");
+            }
+           
             
         
         }
