@@ -25,16 +25,50 @@ namespace PresentationLayer
         }
         private void TableUpdate()
         {
-            dataGridView1.DataSource = manager.ReadAll().ToList();
+            try
+            {
+                dataGridView1.DataSource = manager.ReadAll().ToList();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void MultyUpdate(string username)
         {
-            dataGridView1.DataSource = manager.ReadAll().ToList().Where(x => x.Username.Contains(username)).ToList();
+            try
+            {
+                dataGridView1.DataSource = manager.ReadAll().ToList().Where(x => x.Username.Contains(username)).ToList();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             MultyUpdate(textBox1.Text);
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
+
+                selectedUser = row.DataBoundItem as User;
+
+                UserChanger form = new UserChanger(selectedUser);
+                form.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
         }
     }
 }

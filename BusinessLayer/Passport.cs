@@ -26,12 +26,12 @@ namespace BusinessLayer
 
         }
 
-        public Passport(string id, string egn, Card ownercard)
+        public Passport(string id, Card ownercard, string destinations)
         {
             this.Id = id;
-            this.EGN = EGN;
+            this.EGN = ownercard.EGN;
             this.Card_Owner = ownercard;
-            this.Destinations = "";
+            this.Destinations = destinations;
         }
     }
 }

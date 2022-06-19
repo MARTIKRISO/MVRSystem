@@ -31,11 +31,19 @@
     <Compile Update="PassportCreator.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="UserChanger.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="UserCreate.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="UserFinder.cs">
       <SubType>Form</SubType>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="CardCreator.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>

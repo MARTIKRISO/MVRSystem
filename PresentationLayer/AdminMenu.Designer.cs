@@ -89,12 +89,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(802, 453);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
+            this.MaximumSize = new System.Drawing.Size(820, 500);
+            this.MinimumSize = new System.Drawing.Size(820, 500);
             this.Name = "AdminMenu";
             this.Text = "AdminMenu";
             this.ResumeLayout(false);
