@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataLayer.Migrations
 {
     [DbContext(typeof(MVRSystemDBContext))]
-    [Migration("20220619190659_new")]
-    partial class @new
+    [Migration("20220620105641_spas")]
+    partial class spas
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

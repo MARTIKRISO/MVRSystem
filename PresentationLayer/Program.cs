@@ -1,3 +1,6 @@
+using DataLayer;
+using ServiceLayer;
+using BusinessLayer;
 namespace PresentationLayer
 {
     internal static class Program
@@ -8,6 +11,9 @@ namespace PresentationLayer
         [STAThread]
         static void Main()
         {
+            //User spas = new User("Spas", "pass", "email", true);
+            //UserContext ctx = new UserContext(ServiceLayer.MVRSystemDBManager.CreateContext());
+            //ctx.Create(spas);
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();

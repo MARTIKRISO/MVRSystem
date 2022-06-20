@@ -18,7 +18,7 @@ namespace DataLayer
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             // optionsBuilder.UseInMemoryDatabase("DB");
-            optionsBuilder.UseSqlServer("Server=DESKTOP-DR145US\\SQLEXPRESS;Database=MVR2;Trusted_Connection=True;");
+            optionsBuilder.UseSqlServer("Server=DESKTOP-BVBMDQ0\\SQLEXPRESS;Database=NewNewMVR2;Trusted_Connection=True;");
             //optionsBuilder.UseSqlServer("Server=localhost;Database=MVR3;Trusted_Connection=True;");
 
         }

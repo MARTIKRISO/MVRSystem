@@ -4,7 +4,7 @@
 
 namespace DataLayer.Migrations
 {
-    public partial class @new : Migration
+    public partial class spas : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
