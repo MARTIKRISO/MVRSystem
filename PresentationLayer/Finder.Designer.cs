@@ -83,6 +83,7 @@
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(568, 118);
+            this.textBox1.MaxLength = 10;
             this.textBox1.Name = "textBox1";
             this.textBox1.PlaceholderText = "ЕГН";
             this.textBox1.Size = new System.Drawing.Size(125, 27);
@@ -122,7 +123,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(802, 453);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -131,6 +132,7 @@
             this.Controls.Add(this.radioButton3);
             this.Controls.Add(this.radioButton2);
             this.Controls.Add(this.radioButton1);
+            this.MaximumSize = new System.Drawing.Size(820, 500);
             this.Name = "Finder";
             this.Text = "Finder";
             this.ResumeLayout(false);

@@ -35,11 +35,12 @@ namespace BusinessLayer
             this.OwnerCard = ownercard;
             this.DrivingPoints = points;
             this.Category = category;
+            this.EGN = ownercard.EGN;
         }
         public DrivingLicense(string id, string egn, Card ownercard, int points, string category)
         {
             this.Id = id;
-            this.EGN = egn;
+            this.EGN = ownercard.EGN;
             this.OwnerCard = ownercard;
             this.DrivingPoints = points;
             this.Category = category;

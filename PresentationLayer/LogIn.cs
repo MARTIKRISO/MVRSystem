@@ -34,7 +34,6 @@ namespace PresentationLayer
                     else
                     {
                         NonAdminMenu newForm = new NonAdminMenu();
-                        newForm.MdiParent = this;
                         newForm.ShowDialog();
                     }
                 }

@@ -22,5 +22,17 @@ namespace PresentationLayer
             CardCreator form = new CardCreator();
             form.ShowDialog();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            DrivingLicenseCreator form = new DrivingLicenseCreator();
+            form.ShowDialog();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            PassportCreator form = new PassportCreator();
+            form.ShowDialog();
+        }
     }
 }
